@@ -11,7 +11,7 @@ var biblioText='';
 $('.main a[href^="http://"]').each(function() {
   var siteText = $(this).text();
   var extLink = $(this).attr('href');
-  biblioText += '<li><strong>' + siteText + ":</strong> " + extLink + '</li>\n';
+  biblioText += '<li><strong>' + siteText + ":</strong> " + extLink  + '</li>\n';
 }); // end each
 
 if (biblioText) {
