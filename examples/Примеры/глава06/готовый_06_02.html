@@ -22,10 +22,9 @@
 <script src="../_js/jquery-ui.min.js"></script>
 <script>
 $(document).ready(function() {
-  $('#dashboard').hover(
-     function() {
-		$(this).stop().animate(
-		{
+	$('#dashboard').hover(
+	 function() {
+		$(this).stop().animate({
 			left: '0',
 			backgroundColor: 'rgb(27,45,94)'
 		},
@@ -43,7 +42,9 @@ $(document).ready(function() {
 		'easeOutBounce'
 		); // end animate
 	 }
-  ); // end hover
+	); // end hover
+
+
 }); // end ready
 </script>
 </head>

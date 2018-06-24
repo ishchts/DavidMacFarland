@@ -21,6 +21,14 @@
 	border: 1px solid white;
 	color: white;
 }
+#photo {
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+}
 </style>
 <script src="../_js/jquery.min.js"></script>
 <script>
@@ -31,11 +39,22 @@ $(document).ready(function() {
 	   {
 		  width: '400px',
 		  height: '300px',
-		  opacity: 1
+		  opacity: 1,
+		  bottom : '-310px',
+
 	   },
 	   1000, 
 	   function() {
-		  $('#caption').fadeIn(1000);
+		  $('#caption').fadeIn(1000,function(){
+		  	$(this).animate({
+		  		bottom : '-310px'
+		  	},2000,function(){
+		  		$(this).animate({
+		  			left : '100px',
+		  			bottom : '-200px'
+		  		},1000)
+		  	})
+		  });
 	   }
 	); // end animate
 });

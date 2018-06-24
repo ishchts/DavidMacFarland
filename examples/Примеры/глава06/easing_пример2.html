@@ -21,14 +21,21 @@
 $(document).ready(function() {
  $('#animate').click(function() {
  	$this = $(this);
+
  	if ($this.data('click') === 'even') {
- 		$this.data('click','odd')
+		console.log(2);
+		console.log($this.data('click'));
+		
+ 		$this.data('click','odd');
+
  		$this.animate({
 		 width: '200px',
 		 height: '200px' 
      	},1000,
 	 	'easeInOutSine'); // end animate
  	} else {
+ 		console.log(3);
+ 		console.log($this.data('click'));
  		$this.data('click','even');
  		$this.animate({
 			width: '400px',
