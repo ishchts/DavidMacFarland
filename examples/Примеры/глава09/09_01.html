@@ -9,7 +9,19 @@
 <script src="../_js/jquery-ui.min.js"></script>
 <script>
 $(document).ready(function() {
- 
+	$('#hello').dialog({
+		modal : true,
+		buttons : {
+			"Подтвердить" : function() {
+				$('#robot').effect('explode');
+				$(this).dialog('close');
+			},
+				"Отменить" : function() {
+				$(this).dialog('close');
+			}
+		},
+		width : '600px',
+	});
 }); // end ready
 </script>>
 </head>
@@ -23,11 +35,13 @@ $(document).ready(function() {
 			<h1>Привет, Мир</h1>
 			<p>Обратите внимание на то, что это диалоговое окно выглядит гораздо лучше, чем оповещение!</p>
 <!-- Добавьте тег <div> диалогового окна здесь -->
-
+		<div id="hello" title="Привет, Мир!">
+			<p>Диалоговое окно jQuery UI</p>
+		</div>
 		</div>
 	</div>
 	<footer>
-		 <p>JavaScript и jQuery: Недостающее Руководство, Дэвид МакФарланд.</p>
+			<p>JavaScript и jQuery: Недостающее Руководство, Дэвид МакФарланд.</p>
 	</footer>
 </div>
 </body>
