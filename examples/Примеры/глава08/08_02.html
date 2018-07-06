@@ -26,11 +26,23 @@ $(document).ready(function() {
 		<form action="process.html" method="post" name="signup" id="signup">
 			<div>
 				<label for="name" class="label">Имя</label>
-				<input name="name" type="text" id="name" >
+				<input 
+					name="name"
+					type="text"
+					id="name" 
+					class="required"
+					title="Пожайлуйста ввежите имя" 
+					/>
 			</div>
 			<div>
 				<label for="email" class="label">Электронный адрес</label>
-				<input name="email" type="text" id="email">
+				<input
+					name="email"
+					type="text"
+					id="email"
+					class="required email"
+					title="Пожайлуйста ввежите email" 
+				/>
 			</div>
 			<div>
 				<label for="password" class="label">Пароль</label>
@@ -85,5 +97,7 @@ $(document).ready(function() {
     <p>JavaScript и jQuery: Недостающее Руководство, Дэвид МакФарланд.</p>
   </footer>
 </div>
+<script src="jquery_validate/jquery.validate.min.js"></script>
+<script src="script.js"></script>		
 </body>
 </html>
