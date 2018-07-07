@@ -9,7 +9,19 @@
 <script src="../_js/jquery-ui.min.js"></script>
 <script>
 $(document).ready(function() {
-  
+	$(document).on('click','#robot', function(){
+		$('#confirm').dialog('open');
+	});
+	$('#confirm').dialog({
+		autoOpen: false,
+		modal: true,
+		buttons : {
+			"Подтвердите" : function () {
+				$(this).dialog('close');
+				$('#robot').effect('explode');
+			}
+		}
+	});
 }); // end ready
 </script>
 </head>
@@ -22,9 +34,11 @@ $(document).ready(function() {
 		<div class="main">
 			<h1>Добавление кнопок в диалоговое окно</h1>
 			<p>Робот! Щелкните по роботу, чтобы уничтожить его.</p>
-      <p><img src="images/robot.jpg" id="robot"></p>
+						<p><img src="images/robot.jpg" id="robot"></p>
 			<!-- добавьте диалоговое окно сюда -->
-
+			<div id="confirm" title="Подтвердите уничтожение">
+				<p>Вы уверены, что хотите уничтожить робота?</p>
+			</div>
 		</div>
 	</div>
 	<footer>

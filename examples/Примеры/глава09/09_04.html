@@ -9,9 +9,19 @@
 <script src="../_js/jquery-ui.min.js"></script>
 <script>
 $(document).ready(function() {
-
+	$('p[title]').tooltip({
+		tooltipClass: 'asdasd',
+		show: true,
+		hide: 'explode',
+		content: $('#toolTip').html()
+	});
 }); // end ready
-</script>>
+</script>
+<style>
+	.asdasd {
+		background-color: green;
+	}
+</style>
 </head>
 <body>
 <div class="wrapper">
@@ -24,12 +34,20 @@ $(document).ready(function() {
 			<p>Вы можете добавить всплывающие подсказки к любому элементу страницы.</p>
 			<div class="row">
 
-			<p>Абзац</p>
+			<p title="абзац">Абзац</p>
 
-			<p>Изображение <img src="images/map.png"></p>
+			<p>Изображение <img src="images/map.png" title="изображение"></p>
 
-			<p><button>Кнопка</button></p>
-			
+			<p><button title="кнопка">Кнопка</button></p>
+			<div id="toolTip">
+				<h2>title</h2>
+				<ul>
+					<li>adipisicing elit. </li>
+					<li>Lorem ipsum dolor</li>
+					<li>sit amet, consectetur </li>
+					<li>Quasi, culpa.</li>
+				</ul>
+			</div>
 			</div>
 		</div>
 	</div>

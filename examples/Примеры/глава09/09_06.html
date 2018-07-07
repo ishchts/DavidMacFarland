@@ -9,9 +9,22 @@
 <script src="../_js/jquery-ui.min.js"></script>
 <script>
 $(document).ready(function() {
-
+	$('.js-tabs').tabs({
+		show: true,
+		hide: 'explode',
+		heightStyle: 'auto'
+	});
+	var hash = location.hash;
+	if (hash) {
+		$('.js-tabs').tabs('load',hash);
+	}
 }); // end ready
 </script>
+<style>
+	.tabs a {
+
+	}
+</style>
 </head>
 <body>
 <div class="wrapper">
@@ -21,35 +34,35 @@ $(document).ready(function() {
 	<div class="content">
 		<div class="main">
 			<h1>Панель с вкладками</h1>
-			 <div>
+				<div class="tabs js-tabs">
 				<ul>
-				  <li><a href="">Вкладка 1</a></li>
-				  <li><a href="">Вкладка 2</a></li>
-				  <li><a href="">Вкладка 3</a></li>
-				  </ul>
+						<li><a href="#tab1">Вкладка 1</a></li>
+						<li><a href="#tab2">Вкладка 2</a></li>
+						<li><a href="#tab3">Вкладка 3</a></li>
+				</ul>
 				<!-- Панель 1 -->
-				<div>
-				  <h2><img src="images/robot.jpg" style="float:right" height="150" alt="robot">Содержимое панели 1</h2>
-				  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<div class="tab" id="tab1">
+						<h2><img src="images/robot.jpg" style="float:right" height="150" alt="robot">Содержимое панели 1</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				</div>
 				<!-- Панель 2 -->
-				<div>
-				  <h2>Содержимое панели 2</h2>
-				  <p>Вы можете поместить в панель любой HTML-код</p>
-				  <ul>
+				<div class="tab" id="tab2">
+						<h2>Содержимое панели 2</h2>
+						<p>Вы можете поместить в панель любой HTML-код</p>
+						<ul>
 						<li>Избранное...</li>
 						<li>Заголовки...</li>
 						<li>Изображения...</li>
 						<li>Другое...</li>
-				  </ul>
+						</ul>
 				</div>
 				<!-- Панель 3 -->
-				<div>
-				  <h2>Содержимое панели 3</h2>
-				  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<div class="tab" id="tab3">
+						<h2>Содержимое панели 3</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				</div>
 			</div>
-  </div>
+		</div>
 	</div>
 	<footer>
 		<p>JavaScript и jQuery: Недостающее Руководство, Дэвид МакФарланд.</p>
