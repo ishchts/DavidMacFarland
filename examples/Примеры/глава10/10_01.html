@@ -10,7 +10,13 @@
 <script src="../_js/jquery-ui.min.js"></script>
 <script>
 $(document).ready(function() {
-  
+	$('input[name=birthdate]').datepicker({
+		changeMonth : true,
+		changeYear : true,
+		yearRange : '-120:+0',
+		maxDate : 0,
+		dateFormat : 'm-dd-yy'
+	});
 }); // end ready
 </script>
 </head>
@@ -23,10 +29,10 @@ $(document).ready(function() {
 		<div class="main">
 			<h1>Выбор даты рождения</h1>
 			<form>
-			  <div>
-			    <label for="dob" class="label">Ваша дата рождения</label>
-			    <input type="text" id="dob" name="birthdate">
-			  </div>
+					<div>
+							<label for="dob" class="label">Ваша дата рождения</label>
+							<input type="text" id="dob" name="birthdate">
+					</div>
 			</form>
 		</div>
 	</div>
