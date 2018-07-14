@@ -10,9 +10,41 @@
 <script src="../_js/jquery-ui.min.js"></script>
 <script>
 $(document).ready(function() {
-  
+	$('.js-note').draggable({
+		containment : '.content' ,
+		axis: 'x',
+		cancel: 'p,h2',
+		cursor : 'pointer',
+		revert : true,
+		revertDuration : 300,
+		drag : function (event,ui) {
+			$('.js-note p').text(ui.position.left);
+			ui.helper.css('transform', 'scale(2)');
+			ui.helper.addClass('qweqweqweqweqweq')
+		},
+		start : function (event, ui) {
+			ui.helper.addClass('qwe')
+		} 
+
+
+	});
 }); // end ready
 </script>
+<style>
+	html,
+	body {
+		height: 100%;
+	}
+	.wrapper,
+	.content,
+	.main {
+		height: 100%;
+	}
+	.main {
+		position: relative;
+		
+	}
+</style>
 </head>
 <body>
 <div class="wrapper">
@@ -23,9 +55,17 @@ $(document).ready(function() {
 		<div class="main">
 			<h1>Перетаскиваемая заметка</h1>
 		</div>
-		<div id="note">
-			  <h2>Ты можешь перетащить меня</h2>
-        <p>Я заметка на странице.</p>
+		<div id="note" class="js-note">
+					<h2>Ты можешь перетащить меня</h2>
+								<p>Я заметка на странице.</p>
+		</div>
+		<div id="note" class="js-note">
+					<h2>Ты можешь перетащить меня</h2>
+								<p>Я заметка на странице.</p>
+		</div>
+		<div id="note" class="js-note">
+					<h2>Ты можешь перетащить меня</h2>
+								<p>Я заметка на странице.</p>
 		</div>
 	</div>
 	<footer>
