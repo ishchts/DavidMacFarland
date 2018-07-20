@@ -28,7 +28,12 @@
 <script src="../_js/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
-	
+	$(document).on('click','.js-siteList a',function(e){
+		e.preventDefault();
+		var text = $(this).attr('href');
+		$('#js-headlines').load(text + ' #newsItem');
+	});
+
 			
 }); // end ready
 </script>
@@ -41,12 +46,20 @@ $(document).ready(function() {
 	<div class="content">
 		<div class="main">
 			<h1>Заголовки новостей</h1>
-			<ul id="newslinks">
-			<li><a href="today.html">Сегодняшние новости</a></li>
-	<li><a href="yesterday.html">Вчерашние новости</a></li>
-	<li><a href="lastweek.html">Новости прошлой недели</a></li>
+			<ul id="newslinks" class="js-siteList">
+				<li>
+					<a href="today.html">Сегодняшние новости</a>
+				</li>
+				<li>
+					<a href="yesterday.html">Вчерашние новости</a>
+				</li>
+				<li>
+					<a href="lastweek.html">Новости прошлой недели</a>
+				</li>
 			</ul>
-			<div id="headlines"></div>
+			<div id="js-headlines" >
+				
+			</div>
 		</div>
 	</div>
 <footer>

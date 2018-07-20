@@ -81,17 +81,19 @@ p {
 	font-size: 16px;
 	color: #333333;
 	line-height: 24px;
+	margin-top: 15px;
+	margin-bottom: 20px;
 }
 h2 {
 	font-weight: bold;
 	font-size: 30px;
 	line-height: 36px;
-	margin-top: 20px;
+	margin-top: 15px;
 	margin-bottom: 20px;
 }
 ul {
 	padding-left: 20px;
-	margin-top: 20px;
+	margin-top: 15px;
 	padding-bottom: 20px;
 }
 li {
@@ -99,6 +101,9 @@ li {
 	line-height: 24px;
 	color: #333333;
 	margin-bottom: 5px;
+}
+b {
+	font-weight: bold;
 }
 /* Middle
 -----------------------------------------------------------------------------*/
