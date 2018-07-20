@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Появление заголовка</title>
+<link href="../_css/site.css" rel="stylesheet">
+<script src="../_js/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$('header').hide().slideDown(3000);
+});
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+ <header>
+    JAVASCRIPT <span class="amp">и</span> jQUERY: НЕДОСТАЮЩЕЕ&nbsp;РУКОВОДСТВО
+  </header>
+  <div class="content">
+    <div class="main">
+      <h1>Появление заголовка</h1>
+      <p>Заголовок появляется!</p>
+    </div>
+  </div>
+  <footer>
+<p>JavaScript и jQuery: Недостающее Руководство, Дэвид МакФарланд.</p>
+  </footer>
+</div>
+</body>
+</html>

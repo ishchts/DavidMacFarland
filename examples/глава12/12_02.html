@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Выбросьте это!</title>
+<link href="../_css/jquery-ui.min.css" rel="stylesheet">
+<link href="../_css/site.css" rel="stylesheet">
+<link href="interactions.css" rel="stylesheet">
+<script src="../_js/jquery.min.js"></script>
+<script src="../_js/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function() {
+	$('.js-draggable').draggable({
+		revert : 'invalid',
+		containment : ".main",
+		start : function (e,ui) {
+		},
+		stop : function () {
+			$(this).removeClass('article--transform');
+		},
+		drag : function () {
+			$(this).addClass('article--transform');
+		}
+	});
+	$('.js-droppable').droppable({
+		activeClass : 'highlight',
+		drop : function (e,ui) {
+			ui.helper.hide('explode',300,function(){
+				console.log(555);
+			});
+			$(this).attr('src', '../_images/trashcan-full-icon.png'); 
+		},
+		activate : function () {
+		},
+	});
+	$('.js-acticle').droppable({
+		activate : function (e,ui) {
+			var $this = $(this),
+				dataDrag = $this.data('drag');
+			$this.text(dataDrag);
+		},
+		deactivate : function (e,ui) {
+			$(this).text('');	
+		},
+		over : function () {
+		},
+		drop : function (e,ui) {
+			ui.helper.effect('shake', {
+				direction : 'left',
+				times : 222,
+				distance : 5
+			}, 10000);
+		}
+	});
+	$('.js-draggable').on('click',function(){
+		$(this).addClass('highlight',1000,'easeOutBack',function (){
+			console.log('asd class');
+		})
+	})
+}); // end ready
+</script>
+<style>
+	html,
+	body,
+	.wrapper,
+	.content,
+	.main {
+		height: 100%;
+	}
+	#photos {
+		float: right;
+		width: 445px;
+		height: auto;
+		text-align: center;
+	}
+	div.acticle {
+		width: 240px;
+		height: 300px;
+		background-color: #f2f2f2;
+		transition: all 0.3 linear;
+	}
+	.article--transform {
+		transform: rotate(5deg) scale(1.5);
+	}
+	.section {
+		min-height: 180px;
+	}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<header>
+		JAVASCRIPT <span class="amp">и</span> jQUERY: НЕДОСТАЮЩЕЕ&nbsp;РУКОВОДСТВО
+	</header>
+	<div class="content">
+		<div class="main">
+			<h1>Выбросьте это!</h1>
+			<section class="section">
+				<div id="photos">
+						<img src="../_images/small/slide1_h.jpg" class="js-draggable">
+						<img src="../_images/small/slide2_h.jpg" class="js-draggable">
+						<img src="../_images/small/slide3_h.jpg" class="js-draggable">
+						<img src="../_images/small/slide4_h.jpg" class="js-draggable">
+						<img src="../_images/small/slide5_h.jpg">
+						<img src="../_images/small/slide6_h.jpg">
+				</div>
+				<img src="../_images/trashcan-empty-icon.png" id="trashcan" class="js-droppable">
+			</section>
+			<section class="section">
+				<div class="acticle js-acticle" data-drop="" data-drag="перетещите сюда">
+					
+				</div>
+			</section>
+		</div>
+	</div>
+	<footer>
+		<p>JavaScript и jQuery: Недостающее Руководство, Дэвид МакФарланд.</p>
+	</footer>
+</div>
+</body>
+</html>

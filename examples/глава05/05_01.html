@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Введение в события</title>
+<link href="../_css/site.css" rel="stylesheet">
+<script src="../_js/jquery.min.js"></script>
+
+</head>
+<body id="events">
+<div class="wrapper">
+	<header>
+	   JAVASCRIPT <span class="amp">и</span> jQUERY: НЕДОСТАЮЩЕЕ&nbsp;РУКОВОДСТВО
+	</header>
+	<div class="content">
+			<div class="main">
+		<h1>Введение в события</h1>
+		<p><a href="#">Ссылка</a></p>
+		<form action="#" method="get">
+			<fieldset>
+				<legend>Форма</legend>
+				<p><input name="button" type="button" id="button" value="Кнопка" data-text2="text2" data-text3="text3"></p>
+				<p><input name="textfield" id="textfield" type="text"></p>
+			</fieldset>
+		</form>
+		</div>
+	</div>
+	<footer>
+		<p><ins>JavaScript и jQuery: Недостающее Руководство, Дэвид МакФарланд.</ins></p>
+	</footer>
+</div>
+<script>
+$( "footer").on( "click", function( event, person ) {
+  console.log( "Hello, " + person.name );
+});
+
+	// $(document).on('click','#button',function (e){
+	// 	e.preventDefault();
+	// 	var $this = $(this),
+	// 		text2 = $this.attr('data-text2'),
+	// 		text3 = $this.attr('data-text3');
+
+	// 	$this.toggleClass('current');
+
+	// 	if ($this.hasClass('current')) {
+	// 		 $this.val(text2);
+	// 	} else {
+	// 		$this.val(text3);
+	// 	}
+
+	// });
+	var linkVar = {
+		fName : "Иван",
+		lName : "Иванов"
+	}
+	function showMessage(event){
+		console.log(1);
+		console.log(event.data.fName);
+
+	}
+	$('#button').on({
+		'click' : function (){
+			console.log(1);
+			$( "footer" ).trigger( "click", { name: "Jim" } );
+		},
+		'mouseover' : function (){
+			console.log(2);
+		}
+	});
+
+	$('#textfield').on('input',function(){
+		$(this).css({
+			'background-color' : 'red'
+		});
+	});
+
+</script>
+</body>
+</html>
