@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Анимированная панель навигации</title>
+<link href="../_css/site.css" rel="stylesheet">
+<style>
+#dashboard {
+	width: 110px;
+	background-color: rgb(255,211,224);
+	padding: 20px 20px 0 20px;
+	position: absolute;
+	left: -92px;
+	z-index: 100;
+}
+#dashboard img {
+	margin-bottom: 20px;
+	border: 1px solid rgb(0,0,0);
+}
+.div {
+
+}
+.div__buttons {
+	float: left;
+	width: 100px;
+	
+}
+.div__btn {
+	display: block;
+	margin-bottom: 15px;
+	padding: 5px;
+	width: 100%;
+	text-transform: uppercase;
+	
+
+}
+.div__colRight {
+    height: 75px;
+    margin-left: 120px;
+	animation-name: animate;
+	animation-duration : 5s ;
+	animation-fill-mode : forwards;
+	animation-play-state: paused;
+
+
+}
+@keyframes animate {
+	0% {
+		background-color: red;
+		width: 0;
+	}
+	33% {
+		background-color: blue;
+		width: 33%;
+	}
+	66% {
+		background-color: green;
+		width: 66%
+	}
+	to {
+		width: 100%;
+		background-color: yellow
+	}
+
+}
+</style>
+<script src="../_js/jquery.min.js"></script>
+<script src="../_js/jquery-ui.min.js"></script>
+
+<script>
+$(document).ready(function() {
+	$('#dashboard').hover(function(){
+		var $this = $(this);
+		$this.stop(),
+		$this.animate({
+			left : '0px',
+		},300,function(){
+			console.log(3);	
+			var $this = $(this);
+			$this.animate({
+				'background-color' : 'rgb(27,45,94)'
+			});
+		})
+	}, function(){
+		var $this = $(this);
+		$this.stop(),
+		$this.animate({
+			left : '-94px',
+			'background-color' : 'rgb(255,211,224)'
+		},500,'linear',function(){
+			console.log(5);
+		})
+	});
+	$('.js-btn').on('click',function(){
+		if ($(this).hasClass('js-start')) {
+			console.log(11);
+			$('.js-col').css({
+				'animation-play-state' : 'running'				
+			});			
+		} else {
+			$('.js-col').css({
+				'animation-play-state' : 'paused'
+			});		
+		}
+
+	});
+	
+
+
+}); // end ready
+</script>
+</head>
+<body>
+<div class="wrapper">
+		<header>
+					JAVASCRIPT <span class="amp">и</span> jQUERY: НЕДОСТАЮЩЕЕ&nbsp;РУКОВОДСТВО
+		</header>
+		<main>
+			<div id="dashboard">
+				<img src="../_images/small/blue_h.jpg" width="70" height="70" alt="blue">
+				<img src="../_images/small/green_h.jpg" width="70" height="70" alt="green">
+				<img src="../_images/small/orange_h.jpg" width="70" height="70" alt="orange">
+				<img src="../_images/small/purple_h.jpg" width="70" height="70" alt="purple">
+				<img src="../_images/small/red_h.jpg" width="70" height="70" alt="red">
+				<img src="../_images/small/yellow_h.jpg" width="70" height="70" alt="yellow">
+			</div>
+			<div class="content">
+				<div class="main">
+					<h1>Анимированная панель навигации</h1>
+					<p>Наведите указатель мыши на розовую полосу у левого края страницы</p>
+					<div class="div">
+						<div class="div__buttons">
+							<button class="div__btn js-btn js-start" id="js-start">start</button>
+							<button class="div__btn js-btn js-pause" id="js-pause">pause</button>
+						</div>
+						<div class="div__colRight js-col">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+
+<footer>
+<p>JavaScript и jQuery: Недостающее Руководство, Дэвид МакФарланд.</p>
+</footer>
+</div>
+</body>
+</html>
