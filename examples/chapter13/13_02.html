@@ -25,7 +25,56 @@ input {
 <script src="../_js/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
-			
+	$(document).on('submit','#login',function (){
+		var formData = $(this).serialize();
+		$.get('login.php',formData, function (data) {
+			if (data === 'fail') {
+				console.log('не верно');
+
+				if ($('#formwrapper').hasClass('active')) {
+					return false;
+				} else {
+					$('#formwrapper').addClass('active');
+					$('#formwrapper').prepend('не врено ');
+
+				}
+
+			} else {
+				console.log('верно');
+				$('#formwrapper').html('<p>'  + "adsdasdasd");
+			}
+		});
+		return false;
+
+	});
+
+	var $obj = {
+		contact1 : {
+			name : ' Кристина',
+			lastName : ' Света ',
+			age : 27			
+		},
+		contact2 : {
+			name : ' Алина',
+			lastName : ' Наталья',
+			age : 22
+		}
+	}
+	$.each($obj, function (name,$lastName){
+		console.log(name);
+		console.log($lastName.name + ' ' + $lastName.lastName + ' ' + $lastName.age);
+	});
+
+	var arr = [
+		10,
+		22,
+		33,
+		'asdasd',
+		'слово'
+	];
+	$.each(arr, function(i, el){
+		console.log(i + ' ' + el);
+	})
 }); // end ready
 </script>
 </head>

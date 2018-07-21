@@ -20,24 +20,48 @@
 <script src="../_js/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
-			
+	var URL = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+	var searchInfo = {
+		// change this ID to another flickr ID (like your own if you have one)
+		id : "25053835@N03",
+		format : "json"
+	};
+	$.getJSON(URL, {
+		id : "25053835@N03",
+		format : "json"
+	}, function (data) {
+		$('h1').text(data.title);
+		var image;
+		$.each(data.items, function (i, el) {
+			console.log(i);
+			console.log(el);
+			var $item = $('<span>').attr('class','image'),
+				$link = $('<a>').attr('href', el.link),
+				$img = $('<img>').attr('src', el.media.m.replace('_m','_s'));
+			$link.append($img);
+			$item.append($link);
+			$('#photos').append($item);
+		});
+	});
 }); // end ready
 </script>
 </head>
 <body>
 <div class="wrapper">
 	<header>
-    JAVASCRIPT <span class="amp">и</span> jQUERY: НЕДОСТАЮЩЕЕ&nbsp;РУКОВОДСТВО
+	JAVASCRIPT <span class="amp">и</span> jQUERY: НЕДОСТАЮЩЕЕ&nbsp;РУКОВОДСТВО
 </header>
 	<div class="content">
 		<div class="main">
 			<h1>Изображения с сервиса Flickr</h1>
-		<div id="photos"></div>
-        <br class="clearLeft">
+		<div id="photos">
+			
+		</div>
+		<br class="clearLeft">
 		</div>
 	</div>
 	<footer>
-    <p>JavaScript и jQuery: Недостающее Руководство, Дэвид МакФарланд.</p>
+	<p>JavaScript и jQuery: Недостающее Руководство, Дэвид МакФарланд.</p>
 </footer>
 </div>
 </body>
