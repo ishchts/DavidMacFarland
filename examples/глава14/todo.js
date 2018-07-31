@@ -4,21 +4,33 @@ $(document).ready(function(e) {
 		autoOpen : false,
 		buttons : {
 			"Добавить" : function () {
-				var $input = $('form').find('#task');
+
+				let $input = $('form').find('#task');
+
 				if ($input.val()) {
-					var newHtml = ('<li>');
-					newHtml += '<span class="one">' + '</span>';
-					newHtml += '<span class="two">' + '</span>';
-					newHtml += '<span class="three">' + '</span>' + '</li>';
-					var $newHtml = $(newHtml);
-					$newHtml.find('.three').text($input.val());
+					const $this = $(this);
+					let newHtml = ('<li>');
+
+					newHtml += '<span class="done js-done">'+ '%' + '</span>';
+					newHtml += '<span class="delete">' + 'x' + '</span>';
+					newHtml += '<span class="task">' + '</span>' + '</li>';
+
+					let $newHtml = $(newHtml);
+
+					$newHtml.find('.task').text($input.val());
 					$newHtml.hide();
+
 					$('#todo-list').append($newHtml);
 					$newHtml.fadeIn();
+					$input.val('');
+					$this.dialog('close');
 				} 
 			},
 			"Не добавить" : function () {
 				$(this).dialog('close');
+
+				let $input = $('form').find('#task').val('');
+
 			}
 		}
 	});
@@ -32,4 +44,22 @@ $(document).ready(function(e) {
 		$('.js-popUp').dialog('open');
 	});
 
+	$(document).on('click', '.js-done', function (e) {
+		e.preventDefault();
+
+		let $this = $(this),
+			$parent = $this.parent('li');
+
+		$parent.slideUp(function(){
+			var $detach = $(this).detach();
+			$('.js-completed-list').append($detach);
+			$detach.slideDown();
+
+		});
+
+	});
+	$('.js-sortable').sortable({
+		connectWith: '.js-sortable',
+		cancel: '.done,.delete'
+	});
 }); // end ready
