@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Отладка программ</title>
 <link href="../_css/site.css" rel="stylesheet">
-<script src="_js/jquery.min.js"></script>
+<script src="../_js/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
 var score = 0;
@@ -12,7 +12,7 @@ var quiz = [
   ['Сколько лун у планеты Земля?',1,[0,1,2,3]],
   ['Сколько лун у планеты Сатурн?',31,[0,14,31,160]],
   ['Сколько лун у планеты Венера?',0,[0,1,11,15]]
-;
+];
 //get total number of questions
 var totalQuestion=quiz.length;
 
@@ -66,7 +66,7 @@ $('#next').click(function() {
     $(this).val('Результат');
   }
   if (quiz.length>0) {
-    askQuestions();
+    askQuestion();
   } else {
     giveResults();
   }

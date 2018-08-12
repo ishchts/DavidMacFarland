@@ -6,30 +6,41 @@
 <link href="../_css/site.css" rel="stylesheet">
 <script src="../_js/jquery.min.js"></script>
 <script>
+	$(document).on('ready', function() {
+		var count = $('#count');
+		$(document).on('keydown', '.js-textarea', function (e) {
+			var $area = $(this),
+				areaVal = $area.val().length;
+			console.log(areaVal);
+			console.log(typeof($area.val()));
 
+			count.text($area.val().length);
+		 	console.log('Количество знаков: %d', $area.val().length);
+			
+		});
+	});
 </script>
 </head>
 <body>
-<div class="wrapper">
-	<header>
-    JAVASCRIPT <span class="amp">и</span> jQUERY: НЕДОСТАЮЩЕЕ&nbsp;РУКОВОДСТВО
-</header>
-	<div class="content">
-		<div class="main">
-			<h1>Использование функции console.log()</h1>
-			
- 
-			
-			 <form name="console" method="post" action="">
-<p>
-    <label for="comments">Комментарии</label>
-    <textarea name="comments" id="comments" cols="35" rows="5"></textarea> <span id="count"></span></p>
-    </form>
+	<div class="wrapper">
+		<header>
+			JAVASCRIPT <span class="amp">и</span> jQUERY: НЕДОСТАЮЩЕЕ&nbsp;РУКОВОДСТВО
+		</header>
+		<div class="content">
+			<div class="main">
+				<h1>Использование функции console.log()</h1>
+				<form name="console" method="post" action="">
+					<p>
+						<label for="comments">Комментарии</label>
+						<textarea class="js-textarea" name="comments" id="comments" cols="35" rows="5"></textarea> 
+						<span id="count"></span>
+					</p>
+				</form>
+			</div>
 		</div>
+		<footer>
+			<p>JavaScript и jQuery: Недостающее Руководство, Дэвид МакФарланд.</p>
+		</footer>
 	</div>
-	<footer>
-    <p>JavaScript и jQuery: Недостающее Руководство, Дэвид МакФарланд.</p>
-</footer>
-</div>
 </body>
 </html>
