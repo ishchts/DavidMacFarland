@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="_js/jquery.min.js"></script>
+	<script>
+		let a = /^\d\d\d\d\d\d\b$/;
+		let math = /ghbdt/;
+		let quote = "000111";
+		if (quote.search(a) == -1) {
+			console.log("нет");
+		} else {
+			console.log('есть');
+		}
+
+		let testString = "Файл logo.gif alex.gifford@example.com";
+		let gif = /\S+\.gif\b/i;
+		let result = testString.match(gif);
+		let file = result[0];
+		console.log(file);
+
+		let age = '020 лет' ;
+		let parseAge = parseInt(age, 10);
+
+		console.log(parseAge);
+
+		let cost = 100.299;
+
+		let printCost = cost.toFixed(2) + ' руб.';
+
+		console.log(printCost);
+
+		let now = new Date(),
+			hour = 12,
+			am_pm;
+
+		if (hour < 12) {
+			am_pm = 'am';
+		} else {
+			am_pm = 'pm';
+		}
+		hour = hour % 12;
+
+		if (hour == 0) {
+			hour = 12;
+		}
+		console.log(now);
+		console.log(hour);
+		console.log(am_pm);
+	</script>
+</body>
+</html>
